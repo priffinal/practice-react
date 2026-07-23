@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getProductById } from "../data/products";
+import { useCart } from '../context/CartContext'
 
 export default function Productdetail() {
   const { id } = useParams();
@@ -34,7 +35,7 @@ export default function Productdetail() {
             <h1 className="product-detail-name">{product.name}</h1>
             <p className="product-detail-price">${product.price}</p>
             <p className="product-detail-description">{product.description}</p>
-            <button className="btn btn-primary">Add to Cart</button>
+            <button className="btn btn-primary" onClick={() => addToCart(product.id)}>Add to Cart</button>
           </div>
         </div>
       </div>
